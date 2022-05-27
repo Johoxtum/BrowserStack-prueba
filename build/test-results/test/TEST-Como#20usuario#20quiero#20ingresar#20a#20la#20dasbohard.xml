@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Como usuario quiero ingresar a la dasbohard" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-05-24T21:22:23" hostname="DESKTOP-FJ634HR" time="33.831">
+  <properties/>
+  <testcase name="Diligenciar los datos de ingreso" classname="Como usuario quiero ingresar a la dasbohard" time="33.831"/>
+  <system-out><![CDATA[14
+10.0
+]]></system-out>
+  <system-err><![CDATA[1575 [Test worker] INFO io.cucumber.core.plugin.SerenityReporter - Running feature from file:///E:/Inteliij/Browserstack%20primer%20test/src/test/resources/features/Browser.feature
+1785 [Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Diligenciar los datos de ingreso(como-usuario-quiero-ingresar-a-la-dasbohard;diligenciar-los-datos-de-ingreso)
+--------------------------------------------------------------------------------
+may 24, 2022 4:22:25 PM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
+INFORMACIÓN: Using OpenTelemetry for tracing
+may 24, 2022 4:22:39 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFORMACIÓN: Detected dialect: OSS
+34254 [Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Diligenciar los datos de ingreso
+----------------------------------------------------------------------
+]]></system-err>
+</testsuite>

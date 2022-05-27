@@ -1,0 +1,14 @@
+task/pruebaTask.java
+ task.pruebaTask
+utils/Device.java
+ utils.Device
+userinterfaces/Mapeo.java
+ userinterfaces.Mapeo
+utils/Dataprovider.java
+ utils.Dataprovider
+interactions/Json.java
+ interactions.Json
+utils/BrowserStackSerenityDriver.java
+ utils.BrowserStackSerenityDriver
+utils/BrowserStackSerenityTest.java
+ utils.BrowserStackSerenityTest

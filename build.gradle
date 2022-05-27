@@ -1,0 +1,103 @@
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.2.8")
+        classpath "net.serenity-bdd:serenity-single-page-report:2.2.8"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+test {
+    systemProperty "file.encoding", "utf-8"
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    slf4jVersion = '1.7.7'
+    serenityCoreVersion = '3.1.20'
+    junitVersion = '4.13'
+    assertJVersion = '3.8.0'
+    jsonSchemaValidatorVersion = '3.0.7'
+    jsonPath = '4.3.2'
+    lombokVersion = '1.18.16'
+
+}
+
+dependencies {
+
+
+    implementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay-rest:${serenityCoreVersion}",
+            "junit:junit:${junitVersion}",
+            "org.assertj:assertj-core:${assertJVersion}",
+            "io.rest-assured:json-schema-validator:${jsonSchemaValidatorVersion}",
+            "io.rest-assured:json-path:${jsonPath}"
+    implementation group: 'org.zaproxy', name: 'zap-clientapi', version: '1.8.0'
+    implementation group: 'org.zaproxy', name: 'zap', version: '2.9.0'
+    implementation group: 'com.github.kalokanand', name: 'testlink-api-client', version: '2.0'
+    implementation group: 'br.eti.kinoshita', name: 'testlink-java-api', version: '1.9.6-1'
+    implementation 'net.serenity-bdd:serenity-cucumber:3.1.15'
+    annotationProcessor "org.projectlombok:lombok"
+    implementation group: 'org.apache.maven.plugins', name: 'maven-surefire-plugin', version: '3.0.0-M5'
+    implementation 'com.browserstack:browserstack-local-java:1.0.6'
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    implementation group: 'org.json', name: 'json', version: '20211205'
+
+
+
+
+
+
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+}
+
+task runAParallelSuite(type: Test) {
+    def forks =10
+    exclude ('**/Library.java')
+    println "The Maximum parallel is $forks"
+
+    maxParallelForks = forks
+    include '**/BrowserRunner.class'
+    include '**/FirefoxTest.class'
+    testLogging.showStandardStreams = true
+}
+
+serenity {
+    reports = ["single-page-html"]
+
+}
+
+
+
+
+
+
+test.finalizedBy(aggregate)
